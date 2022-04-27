@@ -61,11 +61,14 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         powers_8 = f'Powers:=[];'
         loop_9 = f'for i in [1..{q_minus_1_over_8}] do Powers:=Append(Powers, image^i); end for;'
         check_10 = f'b:= F! -1;'
-        last_11 = f'b in Powers;'
+        last_11 = f'result:=b in Powers;'
+        last_12 = f' if result then PrintFile("Output", "True with for m={m}"); end if; '
+
+
         magma_command_list = [finite_field_1,primitive_2, order_3,
                               function_field_4,trace_formula_5, image_6,
                               order_image_7,powers_8, loop_9,
-                              check_10,last_11 ]
+                              check_10,last_11, last_12 ]
 
 
 
