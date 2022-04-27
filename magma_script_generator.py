@@ -56,7 +56,7 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         order_3 = f'Order(a);'
         function_field_4 = f'P<x>:=FunctionField(F);'
         trace_formula_5 = f'f:=x^({c_1}) + x^(-{c_1})+ x^({c_2}) + x^(-{c_2})+ x^({c_3}) + x^(-{c_3})+ x + x^(-1)+ x^({c_4}) + x^(-{c_4})+2*x^({t}) + 2*x^(-{t})+ 2*x^({c_5}) + 2*x^(-{c_5})+2*x^({c_6}) + 2*x^(-{c_6})+x^({c_7}) + x^({c_7})+1;'
-        image_6 = f'mage:= Evaluate(f, a);'
+        image_6 = f'image:= Evaluate(f, a);'
         order_image_7 = f'if Order(image) ne {q-1} then image:= Evaluate(f, a^2); end if;'
         powers_8 = f'Powers:=[];'
         loop_9 = f'for i in [1..{q_minus_1_over_8}] do Powers:=Append(Powers, image^i); end for;'
