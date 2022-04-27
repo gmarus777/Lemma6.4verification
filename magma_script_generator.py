@@ -83,3 +83,5 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
 
 
 
+if __name__ == '__main__':
+    main(sys.argv[1])
