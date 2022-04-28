@@ -17,7 +17,7 @@ M = 2
 END_VALUE = 10
 
 # Number of cores available
-THREADS = 3
+THREADS = 9
 
 # saving location for the LOG.txt
 PATH = Path().resolve()

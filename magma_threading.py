@@ -37,3 +37,6 @@ def run_threaded_magma_scripts(start, end):
 def run_magma(m):
     magma_commad = f'magma magma_{m}.txt'
     os.system(magma_commad)
+
+if __name__ == '__main__':
+    main(sys.argv[1])
