@@ -59,7 +59,7 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         image_6 = f'image:= Evaluate(f, a);'
         order_image_7 = f'if Order(image) ne {q-1} then image:= Evaluate(f, a^2); end if;'
         powers_8 = f'Powers:=[];'
-        loop_9 = f'for i in [1..{q_minus_1_over_8}] do Powers:=Append(Powers, image^i); end for;'
+        loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 then Powers:=Append(Powers, image^i); end if; end for;'
         check_10 = f'b:= F! -1;'
         last_11 = f'result:=b in Powers;'
         last_12 = f' if result then PrintFile("Output_{m}", "True"); end if; '
