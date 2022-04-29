@@ -61,9 +61,9 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         # powers_8 = f'Powers:=[];'
         check_8_1 = f'b:= F! -1;'
         # loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 then Powers:=Append(Powers, image^i); end if; end for;'
-        loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 and image^i eq b then PrintFile("Output_{m}", "True"); end if; end for;'
+        loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 and image^i eq b then PrintFile("Output_{m}", "False"); end if; end for;'
         # last_11 = f'result:=b in Powers;'
-        # last_12 = f' if result then PrintFile("Output_{m}", "True"); end if; '
+        # last_12 = f' if result then PrintFile("Output_{m}", "False"); end if; '
 
 
         magma_command_list = [finite_field_1,primitive_2, order_3,
