@@ -53,7 +53,7 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         # last digit indicates line number in magma script file
         finite_field_1 = f'F:=FiniteField(3,{field_entry});'
         primitive_2 = f'a:= PrimitiveElement(F);'
-        order_3 = f'Order(a);'
+        # order_3 = f'Order(a);'
         function_field_4 = f'P<x>:=FunctionField(F);'
         trace_formula_5 = f'f:=x^({c_1}) + x^(-{c_1})+ x^({c_2}) + x^(-{c_2})+ x^({c_3}) + x^(-{c_3})+ x + x^(-1)+ x^({c_4}) + x^(-{c_4})+2*x^({t}) + 2*x^(-{t})+ 2*x^({c_5}) + 2*x^(-{c_5})+2*x^({c_6}) + 2*x^(-{c_6})+x^({c_7}) + x^({c_7})+1;'
         image_6 = f'image:= Evaluate(f, a);'
@@ -66,7 +66,7 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         # last_12 = f' if result then PrintFile("Output_{m}", "False"); end if; '
 
 
-        magma_command_list = [finite_field_1,primitive_2, order_3,
+        magma_command_list = [finite_field_1,primitive_2,
                               function_field_4,trace_formula_5, image_6,
                               order_image_7,check_8_1, loop_9, ]
 
