@@ -13,7 +13,7 @@ from sympy import Symbol
 from sympy.parsing.sympy_parser import parse_expr
 
 # Stating value of N for verification of the trace formula
-M = 2
+M = 1
 END_VALUE = 10
 
 # Number of cores available
@@ -58,17 +58,17 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         trace_formula_5 = f'f:=x^({c_1}) + x^(-{c_1})+ x^({c_2}) + x^(-{c_2})+ x^({c_3}) + x^(-{c_3})+ x + x^(-1)+ x^({c_4}) + x^(-{c_4})+2*x^({t}) + 2*x^(-{t})+ 2*x^({c_5}) + 2*x^(-{c_5})+2*x^({c_6}) + 2*x^(-{c_6})+x^({c_7}) + x^({c_7})+1;'
         image_6 = f'image:= Evaluate(f, a);'
         order_image_7 = f'if Order(image) ne {q-1} then image:= Evaluate(f, a^2); end if;'
-        powers_8 = f'Powers:=[];'
-        loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 then Powers:=Append(Powers, image^i); end if; end for;'
-        check_10 = f'b:= F! -1;'
-        last_11 = f'result:=b in Powers;'
-        last_12 = f' if result then PrintFile("Output_{m}", "True"); end if; '
+        # powers_8 = f'Powers:=[];'
+        check_8_1 = f'b:= F! -1;'
+        # loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 then Powers:=Append(Powers, image^i); end if; end for;'
+        loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 and image^i eq b then PrintFile("Output_{m}", "True"); end if; end for;'
+        # last_11 = f'result:=b in Powers;'
+        # last_12 = f' if result then PrintFile("Output_{m}", "True"); end if; '
 
 
         magma_command_list = [finite_field_1,primitive_2, order_3,
                               function_field_4,trace_formula_5, image_6,
-                              order_image_7,powers_8, loop_9,
-                              check_10,last_11, last_12 ]
+                              order_image_7,check_8_1, loop_9, ]
 
 
 
