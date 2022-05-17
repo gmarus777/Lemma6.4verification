@@ -66,16 +66,14 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         dickson_8 = f'd_8:=DicksonFirst({c_6}, 1);'
         dickson_9 = f'd_9:=DicksonFirst({c_7}, 1);'
 
-        trace_formula_6 = f'tr:=d_1+d_2+d_3+d_4+d_5+2*d_6+2*d_7+2*d_8+d_9+1;'
+        trace_formula_6 = f'tr:=DicksonFirst({c_1}, 1)+DicksonFirst({c_2}, 1)+ DicksonFirst({c_3}, 1)+ DicksonFirst(1, 1)+DicksonFirst({c_4}, 1)+2*DicksonFirst({t}, 1)+2*DicksonFirst({c_5}, 1)+2*DicksonFirst({c_6}, 1)+DicksonFirst({c_7}, 1)+1;'
         image_6 = f'image:= Evaluate(tr, b);'
         order_image_7 = f'if Order(image) lt {q_minus_1_over_2} then PrintFile("Output_{m}", "False"); end if;'
 
 
 
         magma_command_list = [finite_field_1,primitive_2,polynomial_ring_3,
-                              sum_inverse_4,dickson_1,dickson_2, dickson_3,
-                              dickson_4, dickson_5, dickson_6, dickson_7, dickson_8,
-                              dickson_9, trace_formula_6, image_6, order_image_7  ]
+                              sum_inverse_4, trace_formula_6, image_6, order_image_7  ]
 
 
 
