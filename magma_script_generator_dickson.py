@@ -45,7 +45,7 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         c_1 = 2 * t
         c_2 = 2 * t - 2
         c_3 = 4 * t - 2
-        c_4 = 1 - 3 * t
+        c_4 =  3 * t -1
         c_5 = t - 1
         c_6 = 2 * t - 1
         c_7 = 3 * t - 2
@@ -53,22 +53,29 @@ def main(starting_value=M, end_value=END_VALUE, threads=THREADS):
         # last digit indicates line number in magma script file
         finite_field_1 = f'F:=FiniteField(3,{field_entry});'
         primitive_2 = f'a:= PrimitiveElement(F);'
-        # order_3 = f'Order(a);'
-        function_field_4 = f'P<x>:=FunctionField(F);'
-        trace_formula_5 = f'f:=x^({c_1}) + x^(-{c_1})+ x^({c_2}) + x^(-{c_2})+ x^({c_3}) + x^(-{c_3})+ x + x^(-1)+ x^({c_4}) + x^(-{c_4})+2*x^({t}) + 2*x^(-{t})+ 2*x^({c_5}) + 2*x^(-{c_5})+2*x^({c_6}) + 2*x^(-{c_6})+x^({c_7}) + x^({c_7})+1;'
-        image_6 = f'image:= Evaluate(f, a);'
-        order_image_7 = f'if Order(image) ne {q-1} then image:= Evaluate(f, a^2); end if;'
-        # powers_8 = f'Powers:=[];'
-        check_8_1 = f'b:= F! -1;'
-        # loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 then Powers:=Append(Powers, image^i); end if; end for;'
-        loop_9 = f'for i in [1..{q_minus_1_over_8}] do if i mod 3 ne 0 and image^i eq b then PrintFile("Output_{m}", "False"); end if; end for;'
-        # last_11 = f'result:=b in Powers;'
-        # last_12 = f' if result then PrintFile("Output_{m}", "False"); end if; '
+        polynomial_ring_3 = f'P<x>:=PolynomialRing(F);'
+        sum_inverse_4 = f'b:= a+a^-1;'
+
+        dickson_1 = f'd_1:=DicksonFirst({c_1}, 1);'
+        dickson_2 = f'd_2:=DicksonFirst({c_2}, 1);'
+        dickson_3 = f'd_3:=DicksonFirst({c_3}, 1);'
+        dickson_4 = f'd_4:=DicksonFirst(1, 1);'
+        dickson_5 = f'd_5:=DicksonFirst({c_4}, 1);'
+        dickson_6 = f'd_6:=DicksonFirst({t}, 1);'
+        dickson_7 = f'd_7:=DicksonFirst({c_5}, 1);'
+        dickson_8 = f'd_8:=DicksonFirst({c_6}, 1);'
+        dickson_9 = f'd_9:=DicksonFirst({c_7}, 1);'
+
+        trace_formula_6 = f'tr:=d_1+d_2+d_3+d_4+d_5+2*d_6+2*d_7+2*d_8+d_9+1;'
+        image_6 = f'image:= Evaluate(tr, b);'
+        order_image_7 = f'if Order(image) lt {q_minus_1_over_2} then PrintFile("Output_{m}", "False"); end if;'
 
 
-        magma_command_list = [finite_field_1,primitive_2,
-                              function_field_4,trace_formula_5, image_6,
-                              order_image_7,check_8_1, loop_9, ]
+
+        magma_command_list = [finite_field_1,primitive_2,polynomial_ring_3,
+                              sum_inverse_4,dickson_1,dickson_2, dickson_3,
+                              dickson_4, dickson_5, dickson_6, dickson_7, dickson_8,
+                              dickson_9, trace_formula_6, image_6, order_image_7  ]
 
 
 
