@@ -14,7 +14,7 @@ from sympy.parsing.sympy_parser import parse_expr
 
 # Stating value of N for verification of the trace formula
 M = 1
-END_VALUE = 10
+END_VALUE = 100
 
 # Number of cores available
 THREADS = 9
